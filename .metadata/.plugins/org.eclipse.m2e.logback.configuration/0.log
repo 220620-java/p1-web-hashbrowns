@@ -1512,3 +1512,11 @@ Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache
 2022-07-12 17:11:27,112 [Worker-175: Building Project rest] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2022-07-12 17:11:27,112 [Worker-175: Building Project rest] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-07-12 17:11:27,112 [Worker-175: Building Project rest] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-07-12 17:17:17,721 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-07-12 17:17:17,722 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-07-12 17:17:17,722 [Worker-182: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-07-12 17:17:17,723 [Worker-182: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-07-12 17:19:51,933 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-07-12 17:19:51,934 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-07-12 17:19:51,934 [Worker-184: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-07-12 17:19:51,935 [Worker-184: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
