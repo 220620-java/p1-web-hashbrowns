@@ -3,7 +3,7 @@
   <display-name>rest</display-name>
   <servlet>
     <servlet-name>Hello</servlet-name>
-    <servlet-class>rest.servlets.HelloServlet</servlet-class>
+    <servlet-class>p1.servlets.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Hello</servlet-name>
@@ -11,7 +11,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>Cooks</servlet-name>
-    <servlet-class>rest.servlets.CookServlet</servlet-class>
+    <servlet-class>p1.servlets.CookServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Cooks</servlet-name>
