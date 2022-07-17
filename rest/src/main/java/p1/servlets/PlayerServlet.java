@@ -1,46 +1,71 @@
 package p1.servlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import p1.services.PlayerService;
-import p1.services.PlayerServiceImpl;
-import p1.testmodels.*;
 
 public class PlayerServlet extends HttpServlet {
 
-	private PlayerService playerServ = new PlayerServiceImpl();
-	private ObjectMapper objMapper = new ObjectMapper();
 
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// get available pets
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			StringBuilder uriString = new StringBuilder(req.getRequestURI()); // /pet-app1/hello/6
+			uriString.replace(0, req.getContextPath().length()+1, ""); // hello/6
+			
+			// if there is a slash
+			if (uriString.indexOf("/") != -1) {
+				
+				uriString.replace(0, uriString.indexOf("/")+1, ""); 
+				
+				String[] numbers = uriString.toString().split(" ");
+				for (String number : numbers) {
+				    System.out.println(Integer.valueOf(number)); 
+				}
+				
+				PrintWriter writer = resp.getWriter();
+				writer.write(uriString.toString());
+			} else {
+				// gets the response body writer object so that we can write to the response body
+				PrintWriter writer = resp.getWriter();
+				writer.write("Players");
+			}
+		}
 		
-		Player testObj = new Player();
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+			String language = req.getParameter("language");
+			
+			// this gets a reader that will read the HTTP request body
+			BufferedReader reader = req.getReader();
 		
-		Player players = playerServ.viewAllPlayers(testObj);
-		
-		PrintWriter writer = resp.getWriter();
-		
-		// the object mapper writes the pets list as a JSON string to the response body
-		writer.write(objMapper.writeValueAsString(players));
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// add pet
-		// reading the request body and parsing it into a Pet object from the JSON string
-		Player players  = objMapper.readValue(req.getInputStream(), Player.class);
-		
-		playerServ.addPlayer(players);
-		System.out.println(players);
-	}
+			String requestBody = "";
+			String line = "";
+			while ((line=reader.readLine())!=null) {
+				requestBody += line;
+			}
+			
+			PrintWriter writer = resp.getWriter();
+			
+			if (language==null) language="";
+			switch (language) {
+			case "en":
+				writer.write("Hello, " + requestBody + "! :)");
+				break;
+			case "fr":
+				writer.write("Bonjour, " + requestBody + "! :)");
+				break;
+			case "es":
+				writer.write("Hola, " + requestBody + "! :)");
+				break;
+			default:
+				writer.write(requestBody + "! :)");
+			}
+			
+		}
 }
